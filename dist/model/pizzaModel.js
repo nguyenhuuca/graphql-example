@@ -1,13 +1,4 @@
-export const books = [
-    {
-        title: 'The Awakening',
-        author: 'Kate Chopin',
-    },
-    {
-        title: 'City of Glass',
-        author: 'Paul Auster',
-    },
-];
+// https://mocki.io/v1/f2aff27b-c2ff-4d19-9def-dc1466856259
 // this is fake representation of database pizza topping record
 // on the production environment you probably want real data from database
 export const pizzaToppings = [

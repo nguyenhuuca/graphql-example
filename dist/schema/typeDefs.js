@@ -24,6 +24,7 @@ export const typeDefs = `#graphql
   type Query {
     pizzas(pizza: String): [Pizza]
     pizza(id: Int): Pizza!
+    fetchPizza: [Pizza]
   }
   
   type Mutation {

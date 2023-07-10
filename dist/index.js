@@ -1,7 +1,8 @@
 import { ApolloServer } from '@apollo/server';
 import { startStandaloneServer } from '@apollo/server/standalone';
-import { typeDefs } from './model/typeDefs.js';
-import { resolvers } from './model/resolver.js';
+import { typeDefs } from './schema/typeDefs.js';
+import { resolvers } from './resolver/resolver.js';
+import { PizzaAPI } from "./api/PizzaAPI.js";
 // The ApolloServer constructor requires two parameters: your schema
 // definition and your set of resolvers.
 const server = new ApolloServer({
@@ -14,5 +15,15 @@ const server = new ApolloServer({
 //  3. prepares your app to handle incoming requests
 const { url } = await startStandaloneServer(server, {
     listen: { port: 4000 },
+    context: async () => {
+        const { cache } = server;
+        return {
+            // We create new instances of our data sources with each request,
+            // passing in our server's cache.
+            dataSources: {
+                pizzaAPI: new PizzaAPI(),
+            },
+        };
+    }
 });
 console.log(`🚀  Server ready at: ${url}`);

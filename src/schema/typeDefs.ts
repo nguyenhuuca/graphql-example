@@ -24,10 +24,12 @@ export const typeDefs = `#graphql
   type Query {
     pizzas(pizza: String): [Pizza]
     pizza(id: Int): Pizza!
+    fetchPizza: [Pizza]
   }
   
   type Mutation {
     createPizza(pizza: String, toppings: [ToppingInput!]!): Pizza!
     updatePizza(id: Int!, pizza: String, toppings: [ToppingInput]): Pizza!
 }
-`;
+`
+
