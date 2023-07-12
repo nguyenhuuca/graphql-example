@@ -3,7 +3,9 @@
 // this is fake representation of database pizza topping record
 // on the production environment you probably want real data from database
 export const pizzaToppings = [
-    {id: 1, topping: "Cheesy"}
+    {id: 1, topping: "Cheesy"},
+    {id: 2, topping: "Tomato"},
+    {id: 3, topping: "Fish"}
 ]
 
 // this is fake representation of database record

@@ -2,9 +2,16 @@ import {RESTDataSource} from "@apollo/datasource-rest";
 import {Pizza} from "../model/types";
 
 export class PizzaAPI extends RESTDataSource {
-    override baseURL = 'https://mocki.io/v1/aaf0c987-bb14-4d20-bc03-68cb2b4e4489';
+    override baseURL = 'http://localhost:3000/';
 
     async getPizza(): Promise<Pizza>{
-        return this.get<Pizza>('');
+        return this.get<Pizza>('pizzas');
+    }
+
+    async createPizza(pizza) {
+        return this.post(
+            'pizzas',
+            {body: pizza}
+        )
     }
 }

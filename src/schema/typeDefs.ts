@@ -8,7 +8,6 @@ export const typeDefs = `#graphql
   type Pizza {
     id: Int!
     pizza: String!
-    stock: Int!
     toppings: [Topping!]!
   }
   

@@ -26,25 +26,27 @@ export const resolvers = {
             },
 
             fetchPizza: async (_, { id }, { dataSources }) => {
-               const data =  await dataSources.pizzaAPI.getPizza()
-                console.log(data);
-                return data
+                const pizzas =  await dataSources.pizzaAPI.getPizza()
+                console.log(pizzas);
+                return pizzas
             },
         },
         Mutation: {
-            createPizza: (parent, args, context) => {
-                // this is fake implementation of increment id of database
-                // on production environment you would want to insert from real database!
-                let { id } = pizzas.reduce((prev, curr) => prev.id > curr.id ? prev: curr)
-                id = id + 1
-
+            createPizza: async (parent, args, {dataSources}) => {
+                console.log(args);
                 // get pizza topping using pizza id
                 const { toppings, pizza } = args;
                 // treate topping as another table so you also need to get topping using current topping id!
                 const toppingRecords = toppings.map(({id})=> pizzaToppings.find(({id: pizzaToppingId})=> pizzaToppingId === id))
-                const data = {id, toppings: toppingRecords, pizza}
-                pizzas.push(data)
-                return data;
+
+                // generate id
+                let id = Math.floor(100000 + Math.random() * 900000)
+                const newItem = {id, toppings: toppingRecords, pizza}
+
+                const rs = await dataSources.pizzaAPI.createPizza(newItem)
+                console.log("Make new pizza successfully");
+                return rs
+
             },
             updatePizza: (parent, args, context) => {
                 // get current pizza record using pizza id
