@@ -1,20 +1,27 @@
 {
   "name": "graphql-server-example",
+  "type": "module",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "compile": "tsc",
-    "start": "npm run compile && node ./dist/index.js"
+    "start": "npm run compile && node ./dist/index.js",
+    "db:up": "docker-compose up",
+    "db:seed": "seed -u 'mongodb://user:pass@127.0.0.1:27017/products-db' --db-name products-db --drop-database ./data"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "module",
   "dependencies": {
     "@apollo/datasource-rest": "^6.0.1",
     "@apollo/server": "^4.7.4",
-    "graphql": "^16.7.1"
+    "graphql": "^16.7.1",
+    "mongo-seeding": "^3.7.2",
+    "mongo-seeding-cli": "^3.7.2",
+    "mongoose": "^7.3.4",
+    "pino": "^8.14.1",
+    "pino-pretty": "^10.0.1"
   },
   "devDependencies": {
     "@types/node": "^20.3.1",

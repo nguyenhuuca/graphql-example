@@ -1,0 +1,24 @@
+version: '2.1'
+services:
+  mongo:
+    image: mongo:5.0.2
+    restart: always
+    volumes:
+      - ./mongo-init/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+    ports:
+      - 27017:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: user
+      MONGO_INITDB_ROOT_PASSWORD: pass
+      MONGO_INITDB_DATABASE: products-db
+
+  mongo-express:
+    image: mongo-express:1.0.0-alpha.4
+    restart: always
+    ports:
+      - 8081:8081
+    depends_on:
+      - mongo
+    environment:
+      - ME_CONFIG_MONGODB_URL=mongodb://user:pass@mongo:27017/products-db
+

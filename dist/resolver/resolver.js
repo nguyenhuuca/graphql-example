@@ -52,4 +52,9 @@ export const resolvers = {
             return pizzas[index];
         },
     },
+    Pizza: {
+        pizza: (item) => {
+            return item.pizza + "!";
+        }
+    }
 };
