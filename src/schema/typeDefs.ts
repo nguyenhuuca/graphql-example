@@ -5,16 +5,23 @@ export const typeDefs = `#graphql
   # Comments in GraphQL strings (such as this one) start with the hash (#) symbol.
 
   # Schema Type
+  interface IPizza {
+    id: Int!
+    pizza: String!
+    toppings: [Topping!]!
+    status: PizzaStatus
+  }
 
   enum PizzaStatus {
     AVAILABLE,
     COOKING
     UNAVAILABLE
   }
-  type Pizza {
+  type Pizza implements IPizza{
     id: Int!
     pizza: String!
     toppings: [Topping!]!
+    status: PizzaStatus
   }
   
   type Topping {

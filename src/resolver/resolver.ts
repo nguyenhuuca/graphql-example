@@ -5,7 +5,7 @@ import {pizzaToppings, pizzas} from "../model/pizzaModel.js";
 // This resolver retrieves books from the "books" array above.
 export const resolvers = {
         Query: {
-            fetchPizzaById: async (_, { id }, { dataSources }) => {
+            fetchPizzaById: async (parent, { id }, { dataSources }) => {
                 if(id){
                     const pizzas =  await dataSources.pizzaAPI.getPizzaById(id)
                     console.log(pizzas);
