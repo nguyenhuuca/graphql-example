@@ -4,8 +4,11 @@ export class PizzaAPI extends RESTDataSource {
         super(...arguments);
         this.baseURL = 'http://localhost:3000/';
     }
-    async getPizza() {
+    async getPizzas() {
         return this.get('pizzas');
+    }
+    async getPizzaById(id) {
+        return this.get(`pizzas/${id}`);
     }
     async createPizza(pizza) {
         return this.post('pizzas', { body: pizza });

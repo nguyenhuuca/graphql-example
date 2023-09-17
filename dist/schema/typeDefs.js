@@ -5,6 +5,12 @@ export const typeDefs = `#graphql
   # Comments in GraphQL strings (such as this one) start with the hash (#) symbol.
 
   # Schema Type
+
+  enum PizzaStatus {
+    AVAILABLE,
+    COOKING
+    UNAVAILABLE
+  }
   type Pizza {
     id: Int!
     pizza: String!
@@ -21,9 +27,8 @@ export const typeDefs = `#graphql
   }
 
   type Query {
-    pizzas(pizza: String): [Pizza]
-    pizza(id: Int): Pizza!
-    fetchPizza: [Pizza]
+    fetchPizzaById(id: Int): Pizza!
+    fetchPizzas: [Pizza]
   }
   
   type Mutation {

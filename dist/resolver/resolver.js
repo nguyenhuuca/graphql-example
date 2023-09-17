@@ -3,27 +3,16 @@ import { pizzaToppings, pizzas } from "../model/pizzaModel.js";
 // This resolver retrieves books from the "books" array above.
 export const resolvers = {
     Query: {
-        pizzas: (parent, args, context) => {
-            const { pizza } = args;
-            const name = pizza;
-            if (name) {
-                // this is fake implementation of simple string matching
-                // on production environment you would want to query from real database!
-                return [pizzas.find(({ pizza }) => pizza === name)];
-            }
-            return pizzas;
-        },
-        pizza: (parent, args, context) => {
-            const { id } = args;
+        fetchPizzaById: async (_, { id }, { dataSources }) => {
             if (id) {
-                // this is fake implementation of simple id matching
-                // on production environment you would want to query from real database!
-                return pizzas.find(({ id: pizzaId }) => pizzaId === id);
+                const pizzas = await dataSources.pizzaAPI.getPizzaById(id);
+                console.log(pizzas);
+                return pizzas;
             }
             return undefined;
         },
-        fetchPizza: async (_, { id }, { dataSources }) => {
-            const pizzas = await dataSources.pizzaAPI.getPizza();
+        fetchPizzas: async (_, { id }, { dataSources }) => {
+            const pizzas = await dataSources.pizzaAPI.getPizzas();
             console.log(pizzas);
             return pizzas;
         },
