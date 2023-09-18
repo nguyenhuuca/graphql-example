@@ -18,4 +18,11 @@ export class PizzaAPI extends RESTDataSource {
             {body: pizza}
         )
     }
+
+    async updatePizza(pizza) {
+        return this.put(
+            `pizzas/${pizza.id}`,
+            {body: pizza}
+        )
+    }
 }

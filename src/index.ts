@@ -4,6 +4,7 @@ import { startStandaloneServer } from '@apollo/server/standalone';
 import {typeDefs} from './schema/typeDefs.js';
 import {resolvers} from './resolver/resolver.js'
 import {PizzaAPI} from "./api/PizzaAPI.js";
+import {ToppingAPI} from "./api/ToppingAPI.js";
 
 
 interface ContextValue {
@@ -32,6 +33,7 @@ const server = new ApolloServer<ContextValue>({
               // passing in our server's cache.
               dataSources: {
                   pizzaAPI: new PizzaAPI(),
+                  toppingAPI: new ToppingAPI()
               },
           };
       }

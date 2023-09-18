@@ -4,7 +4,7 @@ export type Pizza = {
     toppings: [Topping]
 }
 
-type Topping ={
+export type Topping ={
     id: Number
     topping: String
 }

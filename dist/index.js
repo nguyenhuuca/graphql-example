@@ -3,6 +3,7 @@ import { startStandaloneServer } from '@apollo/server/standalone';
 import { typeDefs } from './schema/typeDefs.js';
 import { resolvers } from './resolver/resolver.js';
 import { PizzaAPI } from "./api/PizzaAPI.js";
+import { ToppingAPI } from "./api/ToppingAPI.js";
 // The ApolloServer constructor requires two parameters: your schema
 // definition and your set of resolvers.
 const server = new ApolloServer({
@@ -22,6 +23,7 @@ const { url } = await startStandaloneServer(server, {
             // passing in our server's cache.
             dataSources: {
                 pizzaAPI: new PizzaAPI(),
+                toppingAPI: new ToppingAPI()
             },
         };
     }

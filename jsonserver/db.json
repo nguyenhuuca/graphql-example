@@ -3,6 +3,7 @@
     {
       "id": 1,
       "pizza": "Neapolitan Pizza",
+      "status": "COOKING",
       "toppings": [
         {
           "id": 1,
@@ -13,112 +14,38 @@
     {
       "id": 2,
       "pizza": "Chicago Pizza",
+      "status": "COOKING",
       "toppings": [
         {
           "id": 1,
           "topping": "Cheesy"
         }
       ]
+    },
+    {
+      "id": 128202,
+      "toppings": [
+        {
+          "id": 1,
+          "topping": "Cheesy"
+        }
+      ],
+      "pizza": "Canh pizza",
+      "status": "COOKING"
+    }
+  ],
+  "toppings": [
+    {
+      "id": 1,
+      "topping": "Cheesy"
+    },
+    {
+      "id": 2,
+      "topping": "Tomato"
     },
     {
       "id": 3,
-      "pizza": "New York-Style Pizza",
-      "toppings": [
-        {
-          "id": 1,
-          "topping": "Cheesy"
-        }
-      ]
-    },
-    {
-      "id": 4,
-      "pizza": "Sicilian Pizza",
-      "toppings": [
-        {
-          "id": 1,
-          "topping": "Cheesy"
-        }
-      ]
-    },
-    {
-      "id": 5,
-      "pizza": "Greek Pizza",
-      "toppings": [
-        {
-          "id": 1,
-          "topping": "Cheesy"
-        }
-      ]
-    },
-    {
-      "id": 6,
-      "pizza": "California Pizza",
-      "toppings": [
-        {
-          "id": 1,
-          "topping": "Cheesy"
-        }
-      ]
-    },
-    {
-      "id": 7,
-      "pizza": "Detroit Pizza",
-      "toppings": [
-        {
-          "id": 1,
-          "topping": "Cheesy"
-        }
-      ]
-    },
-    {
-      "id": 8,
-      "pizza": "St. Louis Pizza",
-      "toppings": [
-        {
-          "id": 1,
-          "topping": "Cheesy"
-        }
-      ]
-    },
-    {
-      "id": 111,
-      "toppings": [
-        {
-          "id": 1,
-          "topping": "Cheesy"
-        }
-      ],
-      "pizza": "canhtest"
-    },
-    {
-      "id": 112,
-      "toppings": [
-        {
-          "id": 1,
-          "topping": "Cheesy"
-        }
-      ],
-      "pizza": "canhtest2"
-    },
-    {
-      "id": 953133,
-      "toppings": [
-        {
-          "id": 1,
-          "topping": "Cheesy"
-        }
-      ],
-      "pizza": "test new item"
-    },
-    {
-      "id": 602196,
-      "toppings": [
-        {
-          "id": 1,
-          "topping": "Cheesy"
-        }
-      ],
-      "pizza": "test new item"
+      "topping": "Fish"
     }
   ]
 }

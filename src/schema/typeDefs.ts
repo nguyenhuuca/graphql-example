@@ -23,6 +23,24 @@ export const typeDefs = `#graphql
     toppings: [Topping!]!
     status: PizzaStatus
   }
+
+  type ChicagoPizza implements IPizza{
+    id: Int!
+    pizza: String!
+    toppings: [Topping!]!
+    status: PizzaStatus
+    dough: String!
+  }
+
+  type DominoPizza implements IPizza{
+    id: Int!
+    pizza: String!
+    toppings: [Topping!]!
+    status: PizzaStatus!
+    sauce: String!
+  }
+
+  union VariousPizza = Pizza | ChicagoPizza | DominoPizza
   
   type Topping {
     id: Int!
@@ -40,7 +58,7 @@ export const typeDefs = `#graphql
   
   type Mutation {
     createPizza(pizza: String, toppings: [ToppingInput!]!): Pizza!
-    updatePizza(id: Int!, pizza: String, toppings: [ToppingInput]): Pizza!
+    updatePizza(id: Int!, pizzaStatus: PizzaStatus ): Pizza!
 }
 `
 
