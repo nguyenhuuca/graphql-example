@@ -6,7 +6,6 @@ import {resolvers} from './resolver/resolver.js'
 import {PizzaAPI} from "./api/PizzaAPI.js";
 import {ToppingAPI} from "./api/ToppingAPI.js";
 
-
 interface ContextValue {
     dataSources: {
         pizzaAPI: PizzaAPI;

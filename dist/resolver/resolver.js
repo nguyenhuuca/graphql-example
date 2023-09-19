@@ -20,6 +20,11 @@ export const resolvers = {
             console.log(pizzas);
             return pizzas;
         },
+        fetchPaging: async (_, { offset, limit }, { dataSources }) => {
+            const pizzas = await dataSources.pizzaAPI.getPizzaByPaging(offset, limit);
+            console.log(pizzas);
+            return pizzas;
+        },
     },
     Mutation: {
         createPizza: async (parent, args, { dataSources }) => {
@@ -28,7 +33,6 @@ export const resolvers = {
             const { toppings, pizza } = args;
             // treate topping as another table so you also need to get topping using current topping id!
             const pizzaToppings = await dataSources.toppingAPI.getToppings();
-
             const toppingRecords = toppings.map(({ id }) => pizzaToppings.find(({ id: pizzaToppingId }) => pizzaToppingId === id));
             // generate id
             let id = Math.floor(100000 + Math.random() * 900000);

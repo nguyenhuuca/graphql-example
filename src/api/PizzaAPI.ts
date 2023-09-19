@@ -12,6 +12,10 @@ export class PizzaAPI extends RESTDataSource {
         return this.get<Pizza>(`pizzas/${id}`);
     }
 
+    async getPizzaByPaging(offset, limit): Promise<Pizza[]>{
+        return this.get<Pizza[]>(`pizzas?_start=${offset}&_limit=${limit}&_sort=pizza&_order=asc`);
+    }
+
     async createPizza(pizza) {
         return this.post(
             'pizzas',

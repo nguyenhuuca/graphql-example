@@ -54,6 +54,7 @@ export const typeDefs = `#graphql
   type Query {
     fetchPizzaById(id: Int): Pizza!
     fetchPizzas: [Pizza]
+    fetchPaging(offset: Int ,limit: Int): [Pizza]
   }
   
   type Mutation {

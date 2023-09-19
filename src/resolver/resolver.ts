@@ -25,6 +25,12 @@ export const resolvers = {
                 console.log(pizzas);
                 return pizzas
             },
+
+            fetchPaging: async (_, { offset, limit }, { dataSources }) => {
+                const pizzas =  await dataSources.pizzaAPI.getPizzaByPaging(offset, limit)
+                console.log(pizzas);
+                return pizzas
+            },
         },
         Mutation: {
             createPizza: async (parent, args, {dataSources}) => {
