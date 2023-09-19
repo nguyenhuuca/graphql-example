@@ -56,7 +56,7 @@ export const resolvers = {
         pizza: (item) => {
             return item.pizza + "!";
         }
-    }
+    },
     // VariousPizza: {
     //     __resolveType(obj, context, info){
     //         // if Pizza have a dough then it mean it is ChicagoPizza

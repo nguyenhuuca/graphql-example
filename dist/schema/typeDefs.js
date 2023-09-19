@@ -9,7 +9,7 @@ export const typeDefs = `#graphql
     id: Int!
     pizza: String!
     toppings: [Topping!]!
-    status: PizzaStatus
+    status: PizzaStatus!
   }
 
   enum PizzaStatus {
@@ -21,14 +21,14 @@ export const typeDefs = `#graphql
     id: Int!
     pizza: String!
     toppings: [Topping!]!
-    status: PizzaStatus
+    status: PizzaStatus!
   }
 
   type ChicagoPizza implements IPizza{
     id: Int!
     pizza: String!
     toppings: [Topping!]!
-    status: PizzaStatus
+    status: PizzaStatus!
     dough: String!
   }
 
@@ -53,7 +53,7 @@ export const typeDefs = `#graphql
 
   type Query {
     fetchPizzaById(id: Int): Pizza!
-    fetchPizzas: [Pizza]
+    fetchPizzas: [Pizza!]
     fetchPaging(offset: Int ,limit: Int): [Pizza]
   }
   

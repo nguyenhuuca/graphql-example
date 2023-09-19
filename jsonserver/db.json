@@ -4,6 +4,7 @@
       "id": 1,
       "pizza": "Neapolitan Pizza",
       "status": "COOKING",
+      "dough": "dough 1",
       "toppings": [
         {
           "id": 1,
@@ -15,6 +16,7 @@
       "id": 2,
       "pizza": "Chicago Pizza",
       "status": "COOKING",
+      "sauce": "sauce A",
       "toppings": [
         {
           "id": 1,
@@ -31,6 +33,17 @@
         }
       ],
       "pizza": "Canh pizza",
+      "status": "COOKING"
+    },
+    {
+      "id": 212115,
+      "toppings": [
+        {
+          "id": 1,
+          "topping": "Cheesy"
+        }
+      ],
+      "pizza": "canh 1",
       "status": "COOKING"
     }
   ],

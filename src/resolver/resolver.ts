@@ -1,5 +1,4 @@
 
-//import {pizzaToppings, pizzas} from "../model/pizzaModel.js";
 import {Topping} from "../model/types";
 
 // Resolvers define how to fetch the types defined in your schema.
@@ -70,7 +69,7 @@ export const resolvers = {
                 return item.pizza + "!"
 
             }
-        }
+        },
         // VariousPizza: {
         //     __resolveType(obj, context, info){
         //         // if Pizza have a dough then it mean it is ChicagoPizza
