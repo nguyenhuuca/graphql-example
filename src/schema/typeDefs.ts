@@ -17,6 +17,13 @@ export const typeDefs = `#graphql
     COOKING
     UNAVAILABLE
   }
+
+  enum ORDER {
+    ASC,
+    DESC
+  }
+
+
   type Pizza implements IPizza{
     id: Int!
     pizza: String!
@@ -50,11 +57,16 @@ export const typeDefs = `#graphql
   input ToppingInput {
     id: Int!
   }
+  input SortInput {
+    name: String
+    order: ORDER
+  }
+
 
   type Query {
     fetchPizzaById(id: Int): Pizza!
     fetchPizzas: [Pizza!]
-    fetchPaging(offset: Int ,limit: Int): [Pizza]
+    fetchPaging(offset: Int ,limit: Int, sortInput: SortInput): [Pizza]
   }
   
   type Mutation {

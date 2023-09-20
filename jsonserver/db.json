@@ -2,20 +2,19 @@
   "pizzas": [
     {
       "id": 1,
-      "pizza": "Neapolitan Pizza",
-      "status": "COOKING",
-      "dough": "dough 1",
       "toppings": [
         {
           "id": 1,
           "topping": "Cheesy"
         }
-      ]
+      ],
+      "pizza": "Neapolitan Pizza",
+      "status": "available"
     },
     {
       "id": 2,
       "pizza": "Chicago Pizza",
-      "status": "COOKING",
+      "status": "cooking",
       "sauce": "sauce A",
       "toppings": [
         {
@@ -33,7 +32,7 @@
         }
       ],
       "pizza": "Canh pizza",
-      "status": "COOKING"
+      "status": "cooking"
     },
     {
       "id": 212115,
@@ -44,7 +43,51 @@
         }
       ],
       "pizza": "canh 1",
-      "status": "COOKING"
+      "status": "cooking"
+    },
+    {
+      "id": 758860,
+      "toppings": [
+        {
+          "id": 1,
+          "topping": "Cheesy"
+        }
+      ],
+      "pizza": "test",
+      "status": "cooking"
+    },
+    {
+      "id": 693434,
+      "toppings": [
+        {
+          "id": 1,
+          "topping": "Cheesy"
+        }
+      ],
+      "pizza": "canh 2",
+      "status": "cooking"
+    },
+    {
+      "id": 335488,
+      "toppings": [
+        {
+          "id": 1,
+          "topping": "Cheesy"
+        }
+      ],
+      "pizza": "canh 2",
+      "status": "cooking"
+    },
+    {
+      "id": 415107,
+      "toppings": [
+        {
+          "id": 1,
+          "topping": "Cheesy"
+        }
+      ],
+      "pizza": "canh 3333",
+      "status": "unavailable"
     }
   ],
   "toppings": [

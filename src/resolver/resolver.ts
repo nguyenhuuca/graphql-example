@@ -5,9 +5,9 @@ import {Topping} from "../model/types";
 // This resolver retrieves books from the "books" array above.
 export const resolvers = {
         PizzaStatus: {
-            AVAILABLE: 'AVAILABLE',
-            COOKING: 'COOKING',
-            UNAVAILABLE: 'UNAVAILABLE',
+            AVAILABLE: 'available',
+            COOKING: 'cooking',
+            UNAVAILABLE: 'unavailable',
         },
         Query: {
             fetchPizzaById: async (parent, { id }, { dataSources }) => {
@@ -25,8 +25,8 @@ export const resolvers = {
                 return pizzas
             },
 
-            fetchPaging: async (_, { offset, limit }, { dataSources }) => {
-                const pizzas =  await dataSources.pizzaAPI.getPizzaByPaging(offset, limit)
+            fetchPaging: async (_, { offset, limit, sortInput }, { dataSources }) => {
+                const pizzas =  await dataSources.pizzaAPI.getPizzaByPaging(offset, limit, sortInput.name, sortInput.order)
                 console.log(pizzas);
                 return pizzas
             },
@@ -43,7 +43,7 @@ export const resolvers = {
 
                 // generate id
                 let id = Math.floor(100000 + Math.random() * 900000)
-                const newItem = {id, toppings: toppingRecords, pizza, status: "COOKING"}
+                const newItem = {id, toppings: toppingRecords, pizza, status: "cooking"}
 
                 const rs = await dataSources.pizzaAPI.createPizza(newItem)
                 console.log("Make new pizza successfully");
@@ -59,9 +59,10 @@ export const resolvers = {
                 // treate topping as another table so you also need to get topping using current topping id!
                 //const toppingRecords = toppings.map(({id})=> pizzaToppings.find(({id: pizzaToppingId})=> pizzaToppingId === id))
 
-                const updateITem = { id, toppings: pizzas.toppings, pizza :pizzas.pizza, pizzaStatus}
+                const updateITem = { id, toppings: pizzas.toppings, pizza :pizzas.pizza, status: pizzaStatus}
                 const rs = await dataSources.pizzaAPI.updatePizza(updateITem)
                 console.log("Update pizza successfully");
+                return rs
             },
         },
         Pizza: {
